@@ -114,6 +114,137 @@ a:link, a:visited, a:hover, a:active {
   width   : 660px;
 }
 
+.hot-topic {
+  display       : block;
+  height        : 300px;
+  margin-bottom : 30px;
+  box-shadow    : 0 6px 4px -4px rgba(0, 0, 0, 0.15);
+  transition    : opacity 0.15s;
+}
+
+.hot-topic .image {
+  float  : left;
+  width  : 50%;
+  height : 100%;
+}
+
+.hot-topic .content {
+  position         : relative;
+  float            : left;
+  width            : 50%;
+  height           : 100%;
+  padding          : 105px 25px 0;
+  background-color : #2d3d54;
+  line-height      : 1.6;
+}
+
+.hot-topic .title {
+  margin-bottom : 15px;
+  color         : #fff;
+  font-weight   : normal;
+  font-size     : 2.0rem;
+}
+
+.hot-topic .desc {
+  color : #ddc;
+}
+
+.hot-topic .date {
+  position         : absolute;
+  top              : 60px;
+  left             : 0;
+  width            : 140px;
+  padding          : 4px;
+  background-color : #fff;
+  color            : #2d3d54;
+  text-align       : center;
+  letter-spacing   : 1px;
+  font-weight      : bold;
+  font-size        : 1.1rem;
+  line-height      : 1;
+}
+
+.heading {
+  padding        : 10px 12px;
+  background     : url("../images/bg-slash.gif");
+  letter-spacing : 1px;
+  font-size      : 1.6rem;
+}
+
+.scroll-list {
+  max-height      : 220px; /* 中の要素が少ない場合は、高さが縮む */
+  overflow-y      : auto;
+  margin-bottom   : 30px;
+  list-style-type : none;
+}
+
+.scroll-list .scroll-item a {
+  display    : block;
+  padding    : 10px 15px;
+  color      : #333333;
+  font-size  : 0; /* 子の要素間に挿入される半角スペースを無視する対策 */
+  transition : background-color 0.1s;
+}
+
+/*「nth-of-type」をa要素に当ててしまうと、a要素は
+どれも.scroll-item内の1つ目のa要素なので奇数番目
+となりスタイルが当たらない*/
+.scroll-list .scroll-item:nth-of-type(even) a {
+  background : url("../images/bg-slash.gif");
+}
+
+.scroll-list .scroll-item a:hover {
+  background-color : #fafaf8;
+}
+
+.scroll-list .date {
+  display        : inline-block;
+  width          : 19%;
+  font-size      : 1.0rem;
+  letter-spacing : 1px;
+  font-weight    : bold;
+}
+
+.scroll-list .category {
+  display          : inline-block;
+  width            : 8%;
+  font-size        : 1.0rem;
+  border-radius    : 5px;
+  background-color : #d03c56;
+  color            : #fff;
+  text-align       : center;
+  letter-spacing   : 1px;
+  line-height      : 16px;
+}
+
+.scroll-list .category.news {
+  background-color : #2c3c53;
+}
+
+.scroll-list .title {
+  display       : inline-block;
+  width         : 73%;
+  padding-left  : 15px;
+  font-size     : 1.2rem;
+  overflow      : hidden;
+  text-overflow : ellipsis;
+  white-space   : nowrap;
+}
+
+.article-box {
+  display       : block;
+  width         : 315px;
+  margin-bottom : 30px;
+}
+
+.article-box:nth-of-type(odd) {
+  float : left;
+}
+
+.article-box:nth-of-type(even) {
+  float : right;
+}
+
 /* --------------------------------
  * side menu
  * -------------------------------- */
