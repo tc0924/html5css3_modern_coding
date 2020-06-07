@@ -296,8 +296,9 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* --------------------------------
- * side menu
+ * side menu -ranking
  * -------------------------------- */
+
 .sidemenu {
   float : right;
   width : 275px;
@@ -306,6 +307,7 @@ a:link, a:visited, a:hover, a:active {
 .ranking {
   margin-bottom   : 30px;
   list-style-type : none; /* ol要素の通し番号を削除 */
+  counter-reset   : ranking;
 }
 
 .ranking .ranking-item {
@@ -322,6 +324,27 @@ a:link, a:visited, a:hover, a:active {
   opacity : 0.8;
 }
 
+.ranking .ranking-item:nth-of-type(1) .order,
+.ranking .ranking-item:nth-of-type(2) .order,
+.ranking .ranking-item:nth-of-type(3) .order {
+  border      : none;
+  color       : #fff;
+  font-weight : normal;
+  line-height : 18px;
+}
+
+.ranking .ranking-item:nth-of-type(1) .order {
+  background-color : #dab413;
+}
+
+.ranking .ranking-item:nth-of-type(2) .order {
+  background-color : #6e7b84;
+}
+
+.ranking .ranking-item:nth-of-type(3) .order {
+  background-color : #a0541a;
+}
+
 .ranking .image {
   width  : 55px;
   height : 55px;
@@ -333,6 +356,7 @@ a:link, a:visited, a:hover, a:active {
   color          : #000;
   vertical-align : top;
   line-height    : 1.5;
+  font-size      : 1.2rem;
 }
 
 .ranking .order {
@@ -352,13 +376,138 @@ a:link, a:visited, a:hover, a:active {
 
 }
 
+.ranking .order::before {
+  content           : counter(ranking);
+  counter-increment : ranking;
+  display           : inline-block;
+  font-size         : 1.0rem;
+  -webkit-transform : rotate(-45deg);
+  -ms-transform     : rotate(-45deg);
+  transform         : rotate(-45deg);
+}
+
+/* --------------------------------
+ * side menu -documents
+ * -------------------------------- */
+.documents {
+  margin : 10px 10px 30px;
+}
+
+.documents,
+.documents ul {
+  list-style : none;
+}
+
+.documents > li .title {
+  margin       : 15px 0;
+  padding-left : 8px;
+  border-left  : 5px solid #d03c56;
+  font-size    : 1.4rem;
+  line-height  : 1.2;
+}
+
+/* documents > li のあとに続くli
+   即ちdocuments直下の2番目以降のli
+ */
+.documents > li + li {
+  margin-top : 25px;
+}
+
+/* documents直下のliの下にあるul */
+.documents > li ul {
+  margin : 15px;
+}
+
+.documents > li ul > li {
+  margin-bottom : 15px;
+  padding-left  : 10px;
+  /* x方向:left, y方向:center */
+  background    : url("../images/arrow.gif") no-repeat left center;
+}
+
+.documents a:hover {
+  text-decoration : underline;
+}
+
+/* --------------------------------
+ * side menu -search
+ * -------------------------------- */
+.search-box {
+  padding          : 15px;
+  background-color : #ccc;
+  /* input要素はdisplay: inline-block
+     なので、要素間の空白を削除する必要あり
+   */
+  font-size        : 0;
+}
+
+.search-box > * {
+  font-size : 1.2rem;
+}
+
+.search-box .search-input {
+  width   : 205px;
+  height  : 26px;
+  padding : 0 10px;
+  border  : none;
+}
+
+.search-box .search-button {
+  width            : 40px;
+  height           : 26px;
+  border           : none;
+  background-color : #d03c56;
+  color            : #fff;
+  cursor           : pointer;
+}
+
+.search-box .text {
+  margin-top : 12px;
+}
+
 /* --------------------------------
  * footer
  * -------------------------------- */
 .footer {
-  width : 100%;
+  width      : 100%;
+  padding    : 20px 0 30px;
+  background : #2d3d54 url("../images/bg-footer.gif");
+  color      : #fff;
 }
 
+.horizontal-list {
+  width      : 970px;
+  margin     : 0 auto;
+  text-align : right;
+  font-size  : 0;
+}
+
+.horizontal-list .horizontal-item {
+  display        : inline-block;
+  padding        : 0 15px;
+  letter-spacing : 1px;
+}
+
+.horizontal-list .horizontal-item + .horizontal-item {
+  border-left : 1px solid #bbb;
+}
+
+.horizontal-list .horizontal-item a {
+  border-bottom : 1px dashed #777;
+  color         : #bbb;
+  font-size     : 1.1rem;
+  transition    : color 0.15s;
+}
+
+.horizontal-list .horizontal-item a:hover {
+  color : #ddd;
+}
+
+.copyright {
+  margin-top     : 30px;
+  text-align     : center;
+  letter-spacing : 1px;
+}
 
 /* --------------------------------
  * 確認用
